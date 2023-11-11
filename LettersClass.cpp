@@ -1,15 +1,15 @@
 #include "LettersClass.hpp"
 
-void Letras::cargar_letra(uint8_t posicion_caracter, uint32_t color){
+void Letters::bring_letter(uint8_t p_ch, uint32_t color){
   for (uint8_t y = 0; y < 10; y++){
     for (uint8_t x = 0; x < 8; x++){
-      caracter_actual[y][x] = bitRead((caracteres_led[posicion_caracter][y]), x) ? color : 0; 
+      actual_ch[y][x] = bitRead((ch_led[p_ch][y]), x) ? color : 0; 
     }
   }
 }
 
-uint8_t Letras::decodificar_caracter(char caracter){
-  switch(caracter){
+uint8_t Letters::decode_ch(char ch){
+  switch(ch){
     case '0':return 0;break;
     case '1':return 1;break;
     case '2':return 2;break;
@@ -96,3 +96,5 @@ uint8_t Letras::decodificar_caracter(char caracter){
     case 'z':return 35;break; 
   }
 }
+
+Letters letter;

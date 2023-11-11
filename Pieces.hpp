@@ -16,64 +16,67 @@ enum Tetrimino{
   T = 0, I, O, S, Z, J, L
 };
 
-class Pieza
+class Piece
 {   
   public:
-    Pieza(){}
+    Piece(){}
+    ~Piece(){}
 
-    void rotar_pieza(Tetrimino pieza);
-    void iniciar_pieza_actual(Tetrimino pa, uint8_t auxiliar);
-    uint32_t pieza_actual[4][4];
+    void rotate(Tetrimino piece);
+    void init_ap(Tetrimino pa, uint8_t aux);
+    uint32_t actual_p[4][4];
 
-    // Matriz de Pieza_T
-    uint32_t Pieza_T[3][3] = {
+    // Matriz de Piece_T
+    uint32_t Piece_T[3][3] = {
         {0, PIEZA_T, 0},
         {PIEZA_T, PIEZA_T, PIEZA_T},
         {0, 0, 0}
     };
 
-    // Matriz de Pieza_I
-    uint32_t Pieza_I[4][4] = {
+    // Matriz de Piece_I
+    uint32_t Piece_I[4][4] = {
         {0, 0, 0, 0},
         {PIEZA_I, PIEZA_I, PIEZA_I, PIEZA_I},
         {0, 0, 0, 0},
         {0, 0, 0, 0}
     };
 
-    // Matriz de Pieza_O
-    uint32_t Pieza_O[3][3] = {
+    // Matriz de Piece_O
+    uint32_t Piece_O[3][3] = {
         {PIEZA_O, PIEZA_O, 0},
         {PIEZA_O, PIEZA_O, 0},
         {0, 0, 0}
     };
 
-    // Matriz de Pieza_S
-    uint32_t Pieza_S[3][3] = {
+    // Matriz de Piece_S
+    uint32_t Piece_S[3][3] = {
         {0, PIEZA_S, PIEZA_S},
         {PIEZA_S, PIEZA_S, 0},
         {0, 0, 0}
     };
 
-    // Matriz de Pieza_Z
-    uint32_t Pieza_Z[3][3] = {
+    // Matriz de Piece_Z
+    uint32_t Piece_Z[3][3] = {
         {PIEZA_Z, PIEZA_Z, 0},
         {0, PIEZA_Z, PIEZA_Z},
         {0, 0, 0}
     };
 
-    // Matriz de Pieza_J
-    uint32_t Pieza_J[3][3] = {
+    // Matriz de Piece_J
+    uint32_t Piece_J[3][3] = {
         {0, 0, PIEZA_J},
         {PIEZA_J, PIEZA_J, PIEZA_J},
         {0, 0, 0}
     };
 
-    // Matriz de Pieza_L
-    uint32_t Pieza_L[3][3] = {
+    // Matriz de Piece_L
+    uint32_t Piece_L[3][3] = {
         {PIEZA_L, 0, 0},
         {PIEZA_L, PIEZA_L, PIEZA_L},
         {0, 0, 0}
     };
 };
+
+extern Piece piece;
 
 #endif

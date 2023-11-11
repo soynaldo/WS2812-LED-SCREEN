@@ -1,6 +1,7 @@
-#ifndef TETRIS
-#define TETRIS
+#include "TetrisClass.hpp"
 
-#include <Arduino.h>
+bool Tetris::can_move() {
+  
+}
 
-#endif
+Tetris tetris;

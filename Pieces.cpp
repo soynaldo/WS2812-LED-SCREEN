@@ -1,49 +1,51 @@
 #include "Pieces.hpp"
 
-void Pieza::rotar_pieza(Tetrimino pieza){
+void Piece::rotate(Tetrimino piece){
   //Serial.println(__FUNCTION__);
-  uint8_t auxiliar = (pieza == I) ? 4 : 3;
-  uint32_t temp[auxiliar][auxiliar];
-  for (uint8_t y = 0; y < auxiliar; y++){
-    for (uint8_t x = 0; x < auxiliar; x++){
-      temp[y][x] = pieza_actual[auxiliar - x - 1][y];
+  uint8_t aux = (piece == I) ? 4 : 3;
+  uint32_t temp[aux][aux];
+  for (uint8_t y = 0; y < aux; y++){
+    for (uint8_t x = 0; x < aux; x++){
+      temp[y][x] = actual_p[aux - x - 1][y];
     }
   }
 
-  for (uint8_t y = 0; y < auxiliar; y++){
-    for (uint8_t x = 0; x < auxiliar; x++){
-      pieza_actual[y][x] = temp[y][x];
+  for (uint8_t y = 0; y < aux; y++){
+    for (uint8_t x = 0; x < aux; x++){
+      actual_p[y][x] = temp[y][x];
     }
   }
 }
 
-void Pieza::iniciar_pieza_actual(Tetrimino pa, uint8_t auxiliar){
-  for (uint8_t y = 0; y < auxiliar; y++){
-    for (uint8_t x = 0; x < auxiliar; x++){
+void Piece::init_ap(Tetrimino pa, uint8_t aux){
+  for (uint8_t y = 0; y < aux; y++){
+    for (uint8_t x = 0; x < aux; x++){
       switch (pa)
       {
         case T:
-          pieza_actual[y][x] = Pieza_T[y][x];
+          actual_p[y][x] = Piece_T[y][x];
         break;
         case I:
-          pieza_actual[y][x] = Pieza_I[y][x];
+          actual_p[y][x] = Piece_I[y][x];
         break;
         case O:
-          pieza_actual[y][x] = Pieza_O[y][x];
+          actual_p[y][x] = Piece_O[y][x];
         break;
         case S:
-          pieza_actual[y][x] = Pieza_S[y][x];
+          actual_p[y][x] = Piece_S[y][x];
         break;
         case Z:
-          pieza_actual[y][x] = Pieza_Z[y][x];
+          actual_p[y][x] = Piece_Z[y][x];
         break;
         case J:
-          pieza_actual[y][x] = Pieza_J[y][x];
+          actual_p[y][x] = Piece_J[y][x];
         break;
         case L:
-          pieza_actual[y][x] = Pieza_L[y][x];
+          actual_p[y][x] = Piece_L[y][x];
         break;
       }
     }
   }
 }
+
+Piece piece;

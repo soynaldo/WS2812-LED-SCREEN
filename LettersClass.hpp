@@ -3,10 +3,10 @@
 
 #include <Arduino.h>
 
-class Letras
+class Letters
 {
   private:
-    const char caracteres_led[48][10] = { //mini base de datos de cada caracter
+    const char ch_led[48][10] = { //mini base de datos de cada ch
       {62,99,103,103,107,115,115,99,62,0},//0
       {12,14,15,12,12,12,12,12,63,0},     //1
       {30,51,51,48,24,12,6,3,63,0},       //2
@@ -56,10 +56,13 @@ class Letras
       {12,6,6,6,6,6,6,6,12,0},              //(
       {24,48,48,48,48,48,48,48,24,0}};      //)
   public:
-    Letras(){}
-    uint32_t caracter_actual[10][8];
-    void cargar_letra(uint8_t posicion_caracter, uint32_t color);
-    uint8_t decodificar_caracter(char caracter);
+    Letters(){}
+    ~Letters(){}
+    uint32_t actual_ch[10][8];
+    void bring_letter(uint8_t p_ch, uint32_t color);
+    uint8_t decode_ch(char ch);
 };
+
+extern Letters letter;
 
 #endif
